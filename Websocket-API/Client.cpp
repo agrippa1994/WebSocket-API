@@ -33,7 +33,7 @@ EXPORT bool websocket_connect(const char *szServer)
 		g_cConnection = hdl;
 	});
 
-	g_pClient->set_message_handler([&](websocketpp::connection_hdl hdl)
+	g_pClient->set_message_handler([&](websocketpp::connection_hdl hdl, websocket_message msg)
 	{
 		g_cConnection = hdl;
 	});
@@ -52,7 +52,6 @@ EXPORT bool websocket_send(const char *szMessage, const size_t dwLen)
 	if (!g_pClient)
 		return false;
 
-	g_pClient->get
 }
 
 
@@ -65,7 +64,7 @@ EXPORT bool websocket_isconnected()
 }
 
 
-EXPORT bool websocket_registerCallback(uint32_t dwType, uint32_t dwAddress);
+EXPORT bool websocket_registerCallback(uint32_t dwType, uint32_t dwAddress)
 {
 	if (dwType < 0 || dwType >= callback_numElements)
 		return false;
