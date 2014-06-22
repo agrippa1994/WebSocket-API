@@ -1,5 +1,18 @@
 #include "Client.h"
 
+/*! \mainpage Websocket API for C# / AHK / VB
+*
+* \section intro_sec Introduction
+*
+* This API is used for creating websockets in your program.
+*
+* \section install_sec Installation
+*
+* Use the dll file, which is located in the bin folder and import its functions into your program to use the functions.
+*
+*/
+
+
 /// Global websocket_client pointer (shared)
 std::shared_ptr<websocket_client> g_pClient = nullptr;
 
@@ -182,7 +195,7 @@ EXPORT bool websocket_isconnected()
 /**
 * This function checks if the socket is connected to an endpoint.
 *
-* @param dwType Type of the callback (@see eCallbackType)
+* @param dwType Type of the callback (eCallbackType)
 * @param dwAddress Address of the function which the interface will call if the callback is triggered (depends on the type)
 *
 * @return Returns a boolean which indicates if the callback has been registered.

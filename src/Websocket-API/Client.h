@@ -6,7 +6,7 @@
 /// Enumeration which is used for callback identification
 enum eCallbackType : uint32_t
 {
-	callback_on_connect,
+	callback_on_connect = 0,
 	callback_on_fail,
 	callback_on_disconnect,
 	callback_on_message,
