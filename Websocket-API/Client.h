@@ -5,7 +5,8 @@
 
 enum eCallbackType : uint32_t
 {
-	callback_on_connect, 
+	callback_on_connect,
+	callback_on_fail,
 	callback_on_disconnect,
 	callback_on_message,
 	callback_numElements
