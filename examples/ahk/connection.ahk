@@ -5,7 +5,7 @@
 Gui, Add, ListBox, x12 y10 w590 h400 vView ,
 
 ; Edits
-Gui, Add, Edit, x372 y420 w120 h20 vHost, ws://localhost:9002/
+Gui, Add, Edit, x372 y420 w120 h20 vHost, ws://echo.websocket.org/
 Gui, Add, Edit, x22 y420 w260 h20 vMessage, Hello World
 
 ; Buttons
