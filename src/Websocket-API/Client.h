@@ -3,6 +3,7 @@
 
 #define EXPORT extern "C" __declspec(dllexport)
 
+/// Enumeration which is used for callback identification
 enum eCallbackType : uint32_t
 {
 	callback_on_connect,
@@ -15,7 +16,7 @@ enum eCallbackType : uint32_t
 EXPORT bool websocket_connect(const char *szServer);
 EXPORT bool websocket_disconnect();
 
-EXPORT bool websocket_send(const char *szMessage, const size_t dwLen);
+EXPORT bool websocket_send(const char *szMessage, const size_t dwLen, bool isBinary);
 
 EXPORT bool websocket_isconnected();
 
