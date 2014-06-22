@@ -83,12 +83,12 @@ EXPORT bool websocket_connect(const char *szServer)
 			{
 				try
 				{
-					msg->get_payload(); // Might throw if the pointer is invalid
-					auto c_str = msg->get_payload();
+					auto c_str = msg->get_payload().c_str();
+					auto len = msg->get_payload().length();
 
-					__asm call c_str
+					__asm push len
+					__asm push c_str
 					__asm call address
-					__asm add esp, 4 // Clean up the stack
 				}
 				catch (...)
 				{
@@ -115,7 +115,7 @@ EXPORT bool websocket_connect(const char *szServer)
 	g_pClient->connect(ptr);
 
 	// Start a thread for asynchronious operations
-	websocketpp::lib::thread(&websocket_client::run, g_pClient);
+	websocketpp::lib::thread(&websocket_client::run, g_pClient).detach();
 
 	return true;
 }
