@@ -41,7 +41,7 @@ if(strLen(ip) == 0)
 res := websocket_connect(ip)
 if(res == 0)
 {
-	addText("The format of the textfield might be wrong!")
+	addText("websocket_connect() returned 0.")
 	return
 }
 return

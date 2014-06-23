@@ -1,34 +1,22 @@
 #include "Client.h"
 
-/*! \mainpage Websocket API for C# / AHK / VB
-*
-* \section intro_sec Introduction
-*
-* This API is used for creating websockets in your program.
-*
-* \section install_sec Installation
-*
-* Use the dll file, which is located in the bin folder and import its functions into your program to use the functions.
-*
-*/
 
-
-/// Global websocket_client pointer (shared)
+/// Global websocket_client pointer (shared).
 std::shared_ptr<websocket_client> g_pClient = nullptr;
 
-/// Global connection hdl which is used for sending data and stuff like that
+/// Global connection hdl which is used for sending data and stuff like that.
 websocketpp::connection_hdl g_cConnection;
 
-/// Global array of addresses which are used for callbacks which are registered by the interface
+/// Global array of addresses which are used for callbacks which are registered by the interface.
 uint32_t g_dwCallbackAdresses[callback_numElements] = { 0x0 };
 
 
 /// Connect to an endpoint
 /**
-* Create and initialize a connection to a specific endpoint
+*	Create and initialize a connection to a specific endpoint.
 *
-* @param szServer Address of an endpoint, example: (ws://localhost:9000/). The string MUST NOT be null!
-* @return Returns a boolean which indicates if the initialization was successfull. The real connection status can be determined with additional callbacks.
+*	@param szServer Address of an endpoint, example: (ws://localhost:9000/). The string MUST NOT be null!
+*	@return Returns a boolean which indicates if the initialization was successful. The real connection status can be determined with additional callbacks.
 */
 EXPORT bool websocket_connect(const char *szServer)
 {
@@ -45,7 +33,7 @@ EXPORT bool websocket_connect(const char *szServer)
 	// Initialize Boost ASIO
 	g_pClient->init_asio();
 
-	// Callback handlers. The function convention which is used for these callbacks is "__cdecl"
+	// Callback handlers. The function convention which is used for these callbacks is "__stdcall / __fastcall"
 	{
 		g_pClient->set_open_handler([&](websocketpp::connection_hdl hdl)
 		{
@@ -120,11 +108,11 @@ EXPORT bool websocket_connect(const char *szServer)
 	return true;
 }
 
-/// Close the connection to the endpoint
+/// Close the connection to the endpoint.
 /**
-* Close the connection and deinitialize the client.
+*	Close the connection and deinitialize the client.
 *
-* @return Returns a boolean which indicates if the deinitialization was successfull.
+*	@return Returns a boolean which indicates if the deinitialization was successful.
 */
 EXPORT bool websocket_disconnect()
 {
@@ -147,15 +135,15 @@ EXPORT bool websocket_disconnect()
 	return true;
 }
 
-/// Send a message
+/// Send a message.
 /**
-* Send a message to the endpoint which can be sent in text or binary format.
+*	Send a message to the endpoint which can be sent in text or binary format.
 *
-* @param szMessage Pointer to a string or to a binary buffer.
-* @param dwLen Length of the message.
-* @param isBinary Boolean which indicates if the data is binary or not.
+*	@param szMessage Pointer to a string or to a binary buffer.
+*	@param dwLen Length of the message.
+*	@param isBinary Boolean which indicates if the data is binary or not.
 *
-* @return Returns a boolean which indicates if the deinitialization was successfull.
+*	@return Returns a boolean which indicates if the transmission was successful.
 */
 EXPORT bool websocket_send(const char *szMessage, const size_t dwLen, bool isBinary)
 {
@@ -177,11 +165,11 @@ EXPORT bool websocket_send(const char *szMessage, const size_t dwLen, bool isBin
 	return false;
 }
 
-/// Check the connection status
+/// Check the connection status.
 /**
-* This function checks if the socket is connected to an endpoint.
+*	This function checks if the socket is connected to an endpoint.
 *
-* @return Returns a boolean which is true if the connection is established otherwise false.
+*	@return Returns a boolean which is true if the connection is established otherwise false.
 */
 EXPORT bool websocket_isconnected()
 {
@@ -191,16 +179,17 @@ EXPORT bool websocket_isconnected()
 	return true;
 }
 
-/// Register a callback
+/// Register a callback.
 /**
-* This function checks if the socket is connected to an endpoint.
+*	Register a callback via its address. The callback function itself MUST HAVE the stdcall or fastcall function convention.
+*	A callback can be unregistered if dwAddress contains null.
 *
-* @param dwType Type of the callback (eCallbackType)
-* @param dwAddress Address of the function which the interface will call if the callback is triggered (depends on the type)
+*	@param dwType Type of the callback. (eCallbackType is an enumeration which contains all indexes which are needed for the proper registration).
+*	@param dwAddress Address of the function which the interface will call if the callback is triggered (depends on the type).
 *
-* @return Returns a boolean which indicates if the callback has been registered.
+*	@return Returns a boolean which indicates if the callback has been registered or not.
 *
-* @see eCallbackType
+*	@see eCallbackType
 */
 EXPORT bool websocket_registerCallback(uint32_t dwType, uint32_t dwAddress)
 {
