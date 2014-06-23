@@ -1,10 +1,6 @@
 var NAVTREE =
 [
   [ "Websocket-API", "index.html", [
-    [ "Websocket API for C# / AHK / VB", "index.html", [
-      [ "Introduction", "index.html#intro_sec", null ],
-      [ "Installation", "index.html#install_sec", null ]
-    ] ],
     [ "Files", null, [
       [ "File List", "files.html", "files" ],
       [ "File Members", "globals.html", [
