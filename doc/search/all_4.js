@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['websocket_20api_20for_20c_23_20_2f_20ahk_20_2f_20vb',['Websocket API for C# / AHK / VB',['../index.html',1,'']]],
   ['websocket_2eh',['Websocket.h',['../_websocket_8h.html',1,'']]],
   ['websocket_5fclient',['websocket_client',['../_websocket_8h.html#af605f57e92ca863cef7c0fef5e4a776e',1,'Websocket.h']]],
   ['websocket_5fconnect',['websocket_connect',['../_client_8cpp.html#a760033a38cba6118d073a1010e6e3e95',1,'websocket_connect(const char *szServer):&#160;Client.cpp'],['../_client_8h.html#a760033a38cba6118d073a1010e6e3e95',1,'websocket_connect(const char *szServer):&#160;Client.cpp']]],

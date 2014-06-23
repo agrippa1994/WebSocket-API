@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('_client_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -208,16 +208,16 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Connect to an endpoint. </p>
-<p>Create and initialize a connection to a specific endpoint</p>
+<p>Create and initialize a connection to a specific endpoint.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">szServer</td><td>Address of an endpoint, example: (ws://localhost:9000/). The string MUST NOT be null! </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns a boolean which indicates if the initialization was successfull. The real connection status can be determined with additional callbacks. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a boolean which indicates if the initialization was successful. The real connection status can be determined with additional callbacks. </dd></dl>
 
-<p>Definition at line <a class="el" href="_client_8cpp_source.html#l00033">33</a> of file <a class="el" href="_client_8cpp_source.html">Client.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_client_8cpp_source.html#l00021">21</a> of file <a class="el" href="_client_8cpp_source.html">Client.cpp</a>.</p>
 
 </div>
 </div>
@@ -236,9 +236,9 @@ Functions</h2></td></tr>
 
 <p>Close the connection to the endpoint. </p>
 <p>Close the connection and deinitialize the client.</p>
-<dl class="section return"><dt>Returns</dt><dd>Returns a boolean which indicates if the deinitialization was successfull. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a boolean which indicates if the deinitialization was successful. </dd></dl>
 
-<p>Definition at line <a class="el" href="_client_8cpp_source.html#l00129">129</a> of file <a class="el" href="_client_8cpp_source.html">Client.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_client_8cpp_source.html#l00117">117</a> of file <a class="el" href="_client_8cpp_source.html">Client.cpp</a>.</p>
 
 </div>
 </div>
@@ -259,7 +259,7 @@ Functions</h2></td></tr>
 <p>This function checks if the socket is connected to an endpoint.</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns a boolean which is true if the connection is established otherwise false. </dd></dl>
 
-<p>Definition at line <a class="el" href="_client_8cpp_source.html#l00186">186</a> of file <a class="el" href="_client_8cpp_source.html">Client.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_client_8cpp_source.html#l00174">174</a> of file <a class="el" href="_client_8cpp_source.html">Client.cpp</a>.</p>
 
 </div>
 </div>
@@ -288,18 +288,18 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Register a callback. </p>
-<p>This function checks if the socket is connected to an endpoint.</p>
+<p>Register a callback via its address. The callback function itself MUST HAVE the stdcall or fastcall function convention. A callback can be unregistered if dwAddress contains null.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dwType</td><td>Type of the callback (eCallbackType) </td></tr>
-    <tr><td class="paramname">dwAddress</td><td>Address of the function which the interface will call if the callback is triggered (depends on the type)</td></tr>
+    <tr><td class="paramname">dwType</td><td>Type of the callback. (eCallbackType is an enumeration which contains all indexes which are needed for the proper registration). </td></tr>
+    <tr><td class="paramname">dwAddress</td><td>Address of the function which the interface will call if the callback is triggered (depends on the type).</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns a boolean which indicates if the callback has been registered.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a boolean which indicates if the callback has been registered or not.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="_client_8h.html#ac9d7d4acdbb12a72a4a66d4c343ae0e6" title="Enumeration which is used for callback identification. ">eCallbackType</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_client_8cpp_source.html#l00205">205</a> of file <a class="el" href="_client_8cpp_source.html">Client.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_client_8cpp_source.html#l00194">194</a> of file <a class="el" href="_client_8cpp_source.html">Client.cpp</a>.</p>
 
 </div>
 </div>
@@ -343,9 +343,9 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns a boolean which indicates if the deinitialization was successfull. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a boolean which indicates if the transmission was successful. </dd></dl>
 
-<p>Definition at line <a class="el" href="_client_8cpp_source.html#l00160">160</a> of file <a class="el" href="_client_8cpp_source.html">Client.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_client_8cpp_source.html#l00148">148</a> of file <a class="el" href="_client_8cpp_source.html">Client.cpp</a>.</p>
 
 </div>
 </div>
@@ -355,7 +355,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_d3e1b0fd2ef7fc2a9b2c77c6cde97009.html">Websocket-API</a></li><li class="navelem"><a class="el" href="_client_8h.html">Client.h</a></li>
-    <li class="footer">Generated on Sun Jun 22 2014 22:04:54 for Websocket-API by
+    <li class="footer">Generated on Mon Jun 23 2014 16:48:13 for Websocket-API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
