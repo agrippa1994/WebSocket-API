@@ -153,7 +153,7 @@ EXPORT bool websocket_send(const char *szMessage, const size_t dwLen, bool isBin
 	try
 	{
 		auto p = g_pClient->get_con_from_hdl(g_cConnection);
-		if (p->send(std::string(szMessage, dwLen), isBinary ? websocketpp::frame::opcode::text : websocketpp::frame::opcode::binary))
+		if (p->send(std::string(szMessage, dwLen), isBinary ? websocketpp::frame::opcode::binary : websocketpp::frame::opcode::text))
 			return false;
 
 		return true;
