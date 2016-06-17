@@ -1,7 +1,7 @@
-Websocket-API
+WebSocket-API
 =============
 
-Websocket client API for AutoHotKey and other scripting and programming languages.
+WebSocket API for AutoHotKey and other scripting / programming languages.
 
 Note for AHK users
 ---------------------
